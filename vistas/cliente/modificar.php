@@ -23,14 +23,20 @@ require '../../modelo/cliente.php';
                 <input type="hidden" name="cliente_id" value="<?= $clientes[0]['cliente_ID'] ?>" >
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="cliente_nombre">Nombre del cliente</label>
-                        <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control" value="<?= $clientes[0]['cliente_NOMBRE'] ?>">
+                    <label for="cliente_nombre">Nombre del cliente</label>
+                        <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="cliente_precio">Precio del cliente</label>
-                        <input type="number" step="0.01" min="0" name="cliente_precio" id="cliente_precio" class="form-control" value="<?= $clientes[0]['cliente_PRECIO'] ?>">
+                        <label for="cliente_apellido">apellido del cliente</label>
+                        <input type="text" name="cliente_apellido" id="cliente_apellido" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="cliente_nit">Nit del cliente</label>
+                        <input type="number" min="0" name="cliente_nit" id="cliente_nit" class="form-control">
                     </div>
                 </div>
                 <div class="row mb-3">
