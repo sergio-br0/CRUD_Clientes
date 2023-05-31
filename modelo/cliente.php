@@ -1,9 +1,10 @@
 <?php
 require 'Conexion.php';
 
-class Cliente extends Conexion{
+class cliente extends Conexion{
     public $cliente_id;
     public $cliente_nombre;
+    public $cliente_apellido;
     public $cliente_nit;
     public $cliente_situacion;
 
@@ -12,12 +13,13 @@ class Cliente extends Conexion{
     {
         $this->cliente_id = $args['cliente_id'] ?? null;
         $this->cliente_nombre = $args['cliente_nombre'] ?? '';
+        $this->cliente_apellido = $args['cliente_apellido'] ?? '';
         $this->cliente_nit = $args['cliente_nit'] ?? '';
         $this->cliente_situacion = $args['cliente_situacion'] ?? '';
     }
 
     public function guardar(){
-        $sql = "INSERT INTO clientes(cliente_nombre, cliente_nit) values('$this->cliente_nombre','$this->cliente_nit')";
+        $sql = "INSERT INTO clientes(cliente_nombre, cliente_apellido, cliente_nit) values('$this->cliente_nombre', '$this->cliente_apellido','$this->cliente_nit')";
         $resultado = self::ejecutar($sql);
         return $resultado;
     }
@@ -27,6 +29,10 @@ class Cliente extends Conexion{
 
         if($this->cliente_nombre != ''){
             $sql .= " and cliente_nombre like '%$this->cliente_nombre%' ";
+        }
+
+        if($this->cliente_apellido != ''){
+            $sql .= " and cliente_apellido like '%$this->cliente_apellido%' ";
         }
 
         if($this->cliente_nit != ''){
@@ -42,7 +48,7 @@ class Cliente extends Conexion{
     }
 
     public function modificar(){
-        $sql = "UPDATE clientes SET cliente_nombre = '$this->cliente_nombre', cliente_nit = $this->cliente_nit where cliente_id = $this->cliente_id";
+        $sql = "UPDATE clientes SET cliente_nombre = '$this->cliente_nombre', cliente_apellido = '$this->cliente_apellido', cliente_nit = $this->cliente_nit where cliente_id = $this->cliente_id";
         
         $resultado = self::ejecutar($sql);
         return $resultado;
