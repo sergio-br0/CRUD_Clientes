@@ -18,19 +18,25 @@ class Cliente extends Conexion{
         $this->cliente_situacion = $args['cliente_situacion'] ?? '';
     }
 
-    public function guardar(){
-        // Validar el NIT antes de guardar los datos
-        if (!$this->validarNit($this->cliente_nit)) {
-            echo "El NIT ingresado es inválido. No se guardarán los datos.";
-            // Detener la ejecución del código o redirigir a otra página, según sea necesario
-            exit();
-        }
-    
+
+
+        public function guardar(){
+            // Validar el NIT antes de guardar los datos
+            if (!$this->validarNit($this->cliente_nit)) {
+                echo "El NIT ingresado es inválido. <br> No se guardarán los datos.";
+                echo "<br>";
+                echo "<br>";
+                // Mostrar un botón para regresar al formulario
+                echo '<button onclick="window.history.back();">Regresar al formulario</button>';
+                // Detener la ejecución del código
+                exit();
+            }
+
         $sql = "INSERT INTO clientes (cliente_nombre, cliente_apellido, cliente_nit) VALUES ('$this->cliente_nombre', '$this->cliente_apellido', '$this->cliente_nit')";
         $resultado = self::ejecutar($sql);
     
         if ($resultado) {
-            echo "Datos guardados correctamente. El NIT es válido.";
+            echo "El NIT es válido.";
         } else {
             echo "Error al guardar los datos.";
         }

@@ -42,7 +42,8 @@ if($_POST['cliente_nombre'] != '' && $_POST['cliente_apellido'] != '' && $_POST[
             <div class="col-lg-6">
                 <?php if($resultado): ?>
                     <div class="alert alert-success" role="alert">
-                        Guardado exitosamente!
+                        Guardado exitosamente! <br> 
+                        el nit ingresado es valido.
                     </div>
                 <?php else :?>
                     <div class="alert alert-danger" role="alert">
