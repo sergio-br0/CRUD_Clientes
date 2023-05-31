@@ -1,9 +1,9 @@
 <?php
-require '../../modelo/cliente.php';
+require '../../modelos/Cliente.php';
     try {
-        $cliente = new cliente($_GET);
+        $cliente = new Cliente($_GET);
 
-        $cliente = $cliente->buscar();
+        $clientes = $cliente->buscar();
         // echo "<pre>";
         // var_dump($clientes[0]['cliente_ID']);
         // echo "</pre>";
@@ -19,24 +19,24 @@ require '../../modelo/cliente.php';
     <div class="container">
         <h1 class="text-center">Modificar clientes</h1>
         <div class="row justify-content-center">
-            <form action="/crudphp18may2023/controladores/clientes/modificar.php" method="POST" class="col-lg-8 border bg-light p-3">
-                <input type="hidden" name="cliente_id" value="<?= $clientes[0]['cliente_ID'] ?>" >
+            <form action="/crud_clientes/controladores/clientes/modificar.php" method="POST" class="col-lg-8 border bg-light p-3">
+                <input type="hidden" name="cliente_id" value="<?= $clientes[0]['CLIENTE_ID'] ?>" >
                 <div class="row mb-3">
                     <div class="col">
-                    <label for="cliente_nombre">Nombre del cliente</label>
-                        <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control">
+                        <label for="cliente_nombre">Nombre del cliente</label>
+                        <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control" value="<?= $clientes[0]['CLIENTE_NOMBRE'] ?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="cliente_apellido">apellido del cliente</label>
-                        <input type="text" name="cliente_apellido" id="cliente_apellido" class="form-control">
+                        <input type="text" name="cliente_apellido" id="cliente_apellido" class="form-control" value="<?= $clientes[0]['CLIENTE_APELLIDO'] ?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="cliente_nit">Nit del cliente</label>
-                        <input type="number" min="0" name="cliente_nit" id="cliente_nit" class="form-control">
+                        <label for="cliente_nit">nit del cliente</label>
+                        <input type="text"  min="0" name="cliente_nit" id="cliente_nit" class="form-control" value="<?= $clientes[0]['CLIENTE_NIT'] ?>">
                     </div>
                 </div>
                 <div class="row mb-3">

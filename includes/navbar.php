@@ -15,10 +15,10 @@
                     </a>
                     <ul class="dropdown-menu bg-dark">
                         <li class="nav-item">
-                            <a class="nav-link" href="/CRUD_Clientes/vistas/productos/index.php">ingresar cliente</a>
+                            <a class="nav-link" href="/crud_clientes/vistas/clientes/index.php">ingresar cliente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/CRUD_Clientes/vistas/productos/buscar.php">buscar cliente</a>
+                            <a class="nav-link" href="/crud_clientes/vistas/clientes/buscar.php">buscar cliente</a>
                         </li>
                     </ul>
                 </li>
