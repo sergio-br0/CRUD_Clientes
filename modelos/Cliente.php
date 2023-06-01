@@ -36,7 +36,7 @@ class Cliente extends Conexion{
         $resultado = self::ejecutar($sql);
     
         if ($resultado) {
-            echo "El NIT es válido.";
+            echo " ";
         } else {
             echo "Error al guardar los datos.";
         }
