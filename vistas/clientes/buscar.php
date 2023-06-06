@@ -1,4 +1,3 @@
-
 <?php include_once '../../includes/header.php'?>
 <?php include_once '../../includes/navbar.php'?>
     <div class="container">
@@ -8,19 +7,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="cliente_nombre">Nombre del cliente</label>
-                        <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="cliente_apellido">apellido del cliente</label>
-                        <input type="text" name="cliente_apellido" id="cliente_apellido" class="form-control">
+                        <input type="text" name="cliente_nombre" id="cliente_nombre" class="form-control" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="cliente_nit">Nit del cliente</label>
-                        <input type="text" min="0" name="cliente_nit" id="cliente_nit" class="form-control">
+                        <input type="text" name="cliente_nit" id="cliente_nit" class="form-control">
                     </div>
                 </div>
                 <div class="row mb-3">

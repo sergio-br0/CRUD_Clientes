@@ -54,5 +54,3 @@ require '../../modelos/Cliente.php';
     </div>
 </body>
 </html>
-
-

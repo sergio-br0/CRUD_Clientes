@@ -8,8 +8,6 @@ $_POST['venta_fecha'] = str_replace('T',' ', $_POST['venta_fecha']);
 if($_POST['venta_cliente'] != '' && $_POST['venta_fecha'] != '' && count($productos)>0 && count($cantidades)>0){
 
     
-
-
     try {
         $venta = new Venta($_POST);
         $resultado = $venta->guardar();

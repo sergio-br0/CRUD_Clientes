@@ -2,7 +2,7 @@
 require '../../modelos/Cliente.php';
 
 
-if($_POST['cliente_nombre'] != '' && $_POST['cliente_apellido']  != '' && $_POST['cliente_nit']  != '' && $_POST['cliente_id'] != ''){
+if($_POST['cliente_nombre'] != '' && $_POST['cliente_nit']  != '' && $_POST['cliente_id'] != ''){
 
 
 
@@ -60,5 +60,3 @@ if($_POST['cliente_nombre'] != '' && $_POST['cliente_apellido']  != '' && $_POST
     </div>
 </body>
 </html>
-
-

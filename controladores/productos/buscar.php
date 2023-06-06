@@ -1,16 +1,13 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-require_once '../../modelos/Venta.php';
+require '../../modelos/Productos.php';
 try {
-    $_GET['venta_fecha'] = date('Y-m-d', strtotime($_GET['venta_fecha']));
-    $venta = new Venta($_GET);
+    $producto = new Producto($_GET);
     
-    $ventas = $venta->buscar();
+    $productos = $producto->buscar();
     // echo "<pre>";
-    // var_dump($ventas);
+    // var_dump($productos);
     // echo "</pre>";
+    // exit;
     // $error = "NO se guardó correctamente";
 } catch (PDOException $e) {
     $error = $e->getMessage();
@@ -26,7 +23,7 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Resultado de ventas</title>
+    <title>Resultados</title>
 </head>
 <body>
     <div class="container">
@@ -35,33 +32,27 @@ try {
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
-                            <th>NO.</th>
-                            <th>CLIENTE</th>
-                            <th>FECHA</th>
-                            <th>PRODUCTO</th>
+                            <th>NO. </th>
+                            <th>NOMBRE</th>
                             <th>PRECIO</th>
-                            <th>CANTIDAD</th>
-                            <th>TOTAL</th>
-                            <th>DETALLE</th>
+                            <th>MODIFICAR</th>
+                            <th>ELIMINAR</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if(count($ventas) > 0):?>
-                        <?php foreach($ventas as $key => $venta) : ?>
+                        <?php if(count($productos) > 0):?>
+                        <?php foreach($productos as $key => $producto) : ?>
                         <tr>
                             <td><?= $key + 1 ?></td>
-                            <td><?= $venta['cliente_nombre'] ?></td>
-                            <td><?= $venta['venta_fecha'] ?></td>
-                            <td><?= $venta['producto_nombre'] ?></td>
-                            <td><?= $venta['producto_precio'] ?></td>
-                            <td><?= $venta['detalle_cantidad'] ?></td>
-                            <td><?= $venta['total'] ?></td>
-                            <td><a class="btn btn-info w-100" href="/crud_clientes/vistas/ventas/detalle.php?venta_id=<?= $venta['venta_id']?>">VER DETALLE</a></td>
+                            <td><?= $producto['PRODUCTO_NOMBRE'] ?></td>
+                            <td><?= $producto['PRODUCTO_PRECIO'] ?></td>
+                            <td><a class="btn btn-warning w-100" href="/crud_clientes/vistas/productos/modificar.php?producto_id=<?= $producto['PRODUCTO_ID']?>">Modificar</a></td>
+                            <td><a class="btn btn-danger w-100" href="/crud_clientes/controladores/productos/eliminar.php?producto_id=<?= $producto['PRODUCTO_ID']?>">Eliminar</a></td>
                         </tr>
                         <?php endforeach ?>
                         <?php else :?>
                             <tr>
-                                <td colspan="8">NO EXISTEN REGISTROS</td>
+                                <td colspan="3">NO EXISTEN REGISTROS</td>
                             </tr>
                         <?php endif?>
                     </tbody>
@@ -70,7 +61,7 @@ try {
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <a href="/crud_clientes/vistas/ventas/buscar.php" class="btn btn-info w-100">Volver al formulario</a>
+                <a href="/crud_clientes/vistas/productos/buscar.php" class="btn btn-info w-100">Volver al formulario</a>
             </div>
         </div>
     </div>
