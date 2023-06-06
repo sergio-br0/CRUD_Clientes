@@ -1,10 +1,17 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 require_once '../../modelos/Venta.php';
-
 try {
     $_GET['venta_fecha'] = $_GET['venta_fecha'] != '' ? date('Y-m-d', strtotime($_GET['venta_fecha'])) : '';
     $venta = new Venta($_GET);
+    
     $ventas = $venta->buscar();
+    // echo "<pre>";
+    // var_dump($ventas);
+    // echo "</pre>";
+    // $error = "NO se guardó correctamente";
 } catch (PDOException $e) {
     $error = $e->getMessage();
 } catch (Exception $e2){
@@ -28,7 +35,7 @@ try {
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
-                            <th>NO.</th>
+                            <th>NO. </th>
                             <th>CLIENTE</th>
                             <th>FECHA</th>
                             <th>DETALLE</th>
@@ -39,9 +46,9 @@ try {
                         <?php foreach($ventas as $key => $venta) : ?>
                         <tr>
                             <td><?= $key + 1 ?></td>
-                            <td><?= $venta['cliente_nombre'] ?></td>
-                            <td><?= $venta['venta_fecha'] ?></td>
-                            <td><a class="btn btn-info w-100" href="/crud_clientes/vistas/ventas/detalle.php?venta_id=<?= $venta['venta_id']?>">VER DETALLE</a></td>
+                            <td><?= $venta['CLIENTE_NOMBRE'] ?></td>
+                            <td><?= $venta['VENTA_FECHA'] ?></td>
+                            <td><a class="btn btn-info w-100" href="/crud_practica9/vistas/ventas/factura.php?venta_id=<?= $venta['VENTA_ID']?>">VER DETALLE</a></td>
                         </tr>
                         <?php endforeach ?>
                         <?php else :?>
@@ -61,4 +68,3 @@ try {
     </div>
 </body>
 </html>
-
